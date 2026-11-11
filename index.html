@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#06110b"><meta name="description" content="MILLIONER.UZ — официальный цифровой портал">
+<link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./assets/icon-192.png" type="image/png"><link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+<title>MILLIONER.UZ</title>
+<style>
+:root{--bg:#050b07;--panel:#0d1911;--panel2:#122319;--line:#254331;--green:#13df78;--green2:#8df2b7;--gold:#f0c44d;--muted:#afc0b4}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% 25%,#0b3520 0%,#07130c 42%,#040806 100%);color:#f6faf7;font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}button,input,select,textarea{font:inherit}button,a{touch-action:manipulation}
+button{cursor:pointer}
+#gate{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:0;background:#020905}
+.exact-gate{position:relative;width:min(100vw,46.4286vh);height:min(100dvh,215.3846vw);aspect-ratio:832/1792;flex:none}
+.exact-gate-image{display:block;width:100%;height:100%;object-fit:fill}
+.exact-start-hit{position:absolute;left:4.5%;top:61.95%;width:91%;height:8.05%;border:0;border-radius:5%;background:transparent;color:transparent;font-size:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.exact-start-hit:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+@media (min-aspect-ratio: 832/1792){.exact-gate{height:100dvh;width:46.4286dvh}}
+
+#gate{position:fixed;inset:0;z-index:1000;overflow:auto;display:flex;justify-content:center;align-items:center;padding:calc(env(safe-area-inset-top) + 18px) 18px calc(env(safe-area-inset-bottom) + 18px);background:radial-gradient(ellipse at 50% 38%,#0c3b23 0%,#07150c 48%,#030705 100%)}
+.gate-inner{width:min(760px,100%);display:flex;flex-direction:column;align-items:center;text-align:center;gap:clamp(10px,2.1vh,22px);padding:10px 0}
+.welcome-title{font-size:clamp(15px,3vw,20px);letter-spacing:.25em;font-weight:900;color:#f6f8f6;margin:0}
+.brand-title{font-size:clamp(36px,9vw,66px);line-height:1;letter-spacing:-.045em;font-weight:1000;color:var(--green);margin:0;text-shadow:0 0 30px #00e77b30}
+.gate-copy{margin:0;color:#d2ddd5;font-size:clamp(13px,3.5vw,18px);max-width:650px}
+.media-wrap{width:100%;aspect-ratio:16/9;max-height:34vh;min-height:130px;position:relative;border:1px solid #15d978;border-radius:24px;overflow:hidden;box-shadow:0 0 24px #12e77a35,0 0 55px #12e77a12;background:#020805}
+.media-wrap video,.media-wrap img,.media-wrap iframe{width:100%;height:100%;object-fit:cover;border:0;display:block}
+.media-wrap iframe{background:#000}
+.media-empty{display:grid;place-items:center;height:100%;color:#8fa497;font-size:13px}
+#startButton{
+ width:min(650px,100%);min-height:clamp(88px,16vw,122px);
+ position:relative;isolation:isolate;overflow:visible;
+ border:2px solid #fff08a;border-radius:28px;
+ background:
+  radial-gradient(ellipse at 50% 0%,#fff9c8 0%,#fff07a 10%,transparent 38%),
+  linear-gradient(180deg,#ffe96a 0%,#ffd52c 24%,#ffbf08 58%,#f0a900 82%,#d88b00 100%);
+ color:#130d00;font-weight:1000;font-size:clamp(21px,4.8vw,34px);
+ letter-spacing:.005em;
+ text-shadow:0 1px 0 #fff2a6;
+ box-shadow:
+  0 0 0 1px #ffcf28,
+  0 7px 0 #a96a00,
+  0 10px 18px #0009,
+  0 0 22px 7px #ffd329b8,
+  0 0 58px 13px #ffb90065,
+  inset 0 3px 2px #fffbd0,
+  inset 0 -7px 12px #c77a00a8;
+ transition:transform .16s,filter .16s,box-shadow .16s;
+}
+#startButton::before{
+ content:"";position:absolute;inset:5px;border-radius:21px;pointer-events:none;z-index:-1;
+ border:1px solid #fff5ae;box-shadow:inset 0 1px 8px #fff5a6a6,inset 0 -5px 10px #d78c00a6;
+}
+#startButton:hover{filter:brightness(1.07);box-shadow:0 0 0 1px #ffcf28,0 7px 0 #a96a00,0 10px 18px #0009,0 0 28px 10px #ffd329d0,0 0 68px 17px #ffb90080,inset 0 3px 2px #fffbd0,inset 0 -7px 12px #c77a00a8}
+#startButton:active{transform:translateY(4px) scale(.992);box-shadow:0 3px 0 #a96a00,0 6px 12px #0009,0 0 28px 8px #ffd329a6,inset 0 3px 8px #d88b00a8}
+.tagline{color:#b7c5bb;letter-spacing:.24em;font-size:11px}
+main{display:none;max-width:1100px;margin:auto;padding:18px 16px 65px}
+header{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px max(15px,calc((100% - 1100px)/2));position:sticky;top:0;z-index:20;background:#06110bea;border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
+.brand{font-weight:1000;letter-spacing:.08em}.brand span{color:var(--green)}.head-actions{display:flex;gap:8px;align-items:center}
+.btn{border:1px solid var(--line);background:#13251a;color:#f6faf7;border-radius:10px;padding:10px 14px;font-weight:800;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:7px}
+.btn.primary{background:var(--green);color:#041209;border-color:var(--green)}.btn.gold{background:linear-gradient(135deg,#ffe36a,#e5a900);color:#160f00;border-color:#ffe36a}.btn.small{font-size:12px;padding:7px 10px}
+.hero{padding:25px 0 14px}.eyebrow{color:var(--gold);font-size:10px;font-weight:900;letter-spacing:.22em}.hero h1{font-size:clamp(30px,6vw,52px);line-height:1;margin:10px 0}.hero h1 span{color:var(--green)}.hero p,.muted{color:var(--muted)}
+.section{margin-top:26px}.section-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}.section h2{font-size:20px;margin:0}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.card{background:linear-gradient(145deg,#122219,#0a140e);border:1px solid var(--line);border-radius:15px;padding:16px;min-width:0}.card h3{margin:0 0 5px}.card p{margin:0;color:var(--muted);font-size:13px}.card .count{color:var(--green2);font-size:18px;font-weight:900;margin-top:7px}.card-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.card-actions a{font-size:12px}
+.contact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.contact{background:#0d1911;border:1px solid var(--line);border-radius:13px;padding:13px}.contact b{display:block}.contact small{display:block;color:var(--muted);overflow-wrap:anywhere}.contact a{margin-top:8px}
+.notice{border:1px dashed #45634d;padding:13px;border-radius:12px;color:var(--muted);font-size:12px}
+footer{text-align:center;color:#83978a;border-top:1px solid var(--line);padding:20px 12px;font-size:11px;letter-spacing:.12em}
+dialog{background:#0b160f;color:#fff;border:1px solid var(--line);border-radius:16px;width:min(650px,calc(100% - 24px));max-height:88vh;overflow:auto;padding:18px}dialog::backdrop{background:#000b;backdrop-filter:blur(5px)}.dialog-head{display:flex;justify-content:space-between;align-items:center;gap:10px}.dialog-head h2{margin:0}.close{background:none;color:white;border:0;font-size:25px}
+.admin{display:none;max-width:1100px;margin:auto;padding:20px 14px 60px}.admin-layout{display:grid;grid-template-columns:190px 1fr;gap:12px}.admin-nav,.admin-panel{border:1px solid var(--line);border-radius:14px;background:#0c1710;padding:12px}.admin-nav button{display:block;width:100%;text-align:left;margin:4px 0}.admin-nav button.active{border-color:var(--green);color:var(--green2)}.admin-panel h2{margin:3px 0 14px}.field{display:grid;gap:5px;margin:10px 0}.field label{font-size:12px;color:var(--muted)}.field input,.field select,.field textarea{width:100%;padding:10px;border-radius:8px;border:1px solid var(--line);background:#050b07;color:white}.field textarea{min-height:80px}.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.item{border:1px solid var(--line);border-radius:10px;padding:11px;margin:8px 0;display:flex;justify-content:space-between;align-items:center;gap:10px}.item small{display:block;color:var(--muted);overflow-wrap:anywhere}.item-actions{display:flex;gap:5px;flex-wrap:wrap}.tab{display:none}.tab.active{display:block}.check{display:flex;gap:8px;align-items:center}.check input{accent-color:var(--green);width:18px;height:18px}
+@media(max-width:680px){header{padding:10px 13px}.cards{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}.admin-layout{grid-template-columns:1fr}.admin-nav{display:flex;overflow:auto;gap:5px}.admin-nav button{white-space:nowrap;width:auto}.row{grid-template-columns:1fr}.gate-inner{transform:translateY(0)}.media-wrap{max-height:30vh}}
+</style></head>
+<body>
+<section id="gate" aria-label="MILLIONER.UZ welcome">
+ <div class="exact-gate">
+  <img class="exact-gate-image" src="./assets/welcome-exact.png" alt="Welcome to MILLIONER.UZ">
+  <button id="startButton" class="exact-start-hit" aria-label="BOSHLASH, НАЧАТЬ, START">BOSHLASH • НАЧАТЬ • START →</button>
+  <button id="continueWithoutInstall" class="visually-hidden" type="button">Продолжить без установки</button>
+ </div>
+</section>
+<header><div class="brand">MILLIONER<span>.UZ</span></div><div class="head-actions"><button class="btn small" id="installBtn">Установить</button><button class="btn small" id="ownerBtn">OWNER</button></div></header>
+<main id="home">
+ <section class="hero"><div class="eyebrow">OFFICIAL DIGITAL ECOSYSTEM</div><h1>Добро пожаловать в <span>MILLIONER.UZ</span></h1><p>Все официальные площадки и способы связи — в одном месте. Выберите канал, подпишитесь или свяжитесь напрямую.</p><div class="card-actions"><button class="btn gold" id="connectAll">ПОДКЛЮЧИТЬСЯ КО ВСЕМ ПЛОЩАДКАМ</button></div></section>
+ <section class="section"><div class="section-head"><h2>Официальные площадки</h2><span class="muted">Открывайте и подписывайтесь</span></div><div class="cards" id="socialCards"></div></section>
+ <section class="section"><div class="section-head"><h2>Связаться с нами</h2><span class="muted">Звонок · SMS · Telegram · Email</span></div><div class="contact-grid" id="contactCards"></div></section>
+ <section class="section"><div class="notice">Подписка и включение уведомлений выполняются на стороне YouTube, Instagram и Telegram. MILLIONER.UZ открывает официальные страницы; пользователь подтверждает действие самостоятельно.</div></section>
+</main>
+<section class="admin" id="admin">
+ <div class="section-head"><div><div class="eyebrow">PRIVATE OWNER WORKSPACE</div><h1 style="margin:4px 0">Панель владельца</h1><div class="muted">Управление приветствием, ссылками и контактами</div></div><button class="btn" id="exitAdmin">На сайт</button></div>
+ <div class="admin-layout"><nav class="admin-nav">
+  <button class="btn active" data-tab="media">Приветствие / медиа</button><button class="btn" data-tab="social">Площадки</button><button class="btn" data-tab="contacts">Контакты</button><button class="btn" data-tab="modules">Модули</button><button class="btn" data-tab="security">Доступ</button>
+ </nav><div class="admin-panel">
+  <div class="tab active" id="tab-media"><h2>Экран приветствия</h2>
+   <div class="field"><label>Тип медиа</label><select id="mediaType"><option value="video">Видео</option><option value="image">Фото / PNG</option><option value="html">HTML / интерактивный embed</option><option value="none">Без медиа</option></select></div>
+   <div class="field"><label>Загрузить видео или изображение</label><input id="mediaFile" type="file" accept="video/mp4,video/webm,image/png,image/jpeg,image/webp"></div>
+   <div class="field"><label>HTML / iframe-код (только доверенный код владельца)</label><textarea id="mediaHtml" placeholder="Вставьте embed-код, если выбрали HTML"></textarea></div>
+   <div class="row"><button class="btn primary" id="applyMedia">Применить медиа</button><button class="btn" id="removeMedia">Удалить медиа</button></div>
+   <p class="muted">Если медиа убрать, заголовок, приветствие и кнопка автоматически выровняются без пустого блока. Файл, выбранный здесь, сохраняется только в этом браузере; для всех посетителей загрузите его в GitHub и задайте путь в релизе.</p>
+  </div>
+  <div class="tab" id="tab-social"><h2>Социальные площадки</h2><div id="socialEditor"></div><button class="btn primary" id="addSocial">+ Добавить площадку</button></div>
+  <div class="tab" id="tab-contacts"><h2>Телефоны и контакты</h2><div id="contactEditor"></div><button class="btn primary" id="addContact">+ Добавить контакт</button><p class="muted">Заполните реальные номера в международном формате, например +998..., чтобы заработали tel: и sms:. Номера не подставляются автоматически и не выдумываются.</p></div>
+  <div class="tab" id="tab-modules"><h2>Подключаемая архитектура</h2><div id="moduleList"></div><div class="notice">Каждый модуль включается отдельно. В этой стартовой версии реестр и точки расширения готовы; backend-функции (аккаунты, общий чат, платежи, антиспам) подключаются отдельными релизами.</div></div>
+  <div class="tab" id="tab-security"><h2>Доступ к панели</h2><div class="notice"><b>Демо PIN: 2468.</b> Это только клиентский прототип. Не публикуйте его как безопасную админку: любой посетитель может изучить статический HTML. Для реального запуска OWNER требуется серверная авторизация OAuth/Passkeys и серверная проверка ролей.</div><div class="field"><label>Изменить локальный демо PIN</label><input id="newPin" inputmode="numeric" placeholder="Новый PIN"></div><button class="btn primary" id="savePin">Сохранить PIN на этом устройстве</button></div>
+ </div></div>
+</section>
+<dialog id="installHelp"><div class="dialog-head"><h2>Установка MILLIONER.UZ</h2><button class="close" id="closeInstallHelp">×</button></div><div id="installHelpText" class="muted"></div><div class="card-actions"><button class="btn primary" id="confirmContinue">Я понял — продолжить</button></div></dialog>
+<dialog id="loginDialog"><div class="dialog-head"><h2>Вход владельца</h2><button class="close" id="closeLogin">×</button></div><div class="field"><label>PIN</label><input id="pinInput" type="password" inputmode="numeric"></div><button class="btn primary" id="login">Войти</button><p class="muted" id="loginMsg"></p></dialog>
+<dialog id="connectDialog"><div class="dialog-head"><h2>Подключение к площадкам</h2><button class="close" id="closeConnect">×</button></div><p class="muted">Открывайте площадки по очереди. После каждого перехода вернитесь и нажмите следующую.</p><div id="connectStep" class="card"></div><div class="card-actions"><button class="btn primary" id="openNext">Открыть площадку</button><button class="btn" id="endConnect">Готово</button></div></dialog>
+<footer>© 2026 MILLIONER.UZ · OFFICIAL PORTAL</footer>
+<script>
+const STORE='millioner-launch-config-v3';
+const defaults={
+ socials:[
+  {id:'instagram',name:'Instagram',url:'https://www.instagram.com/millioner.uz_official/',label:'Официальный профиль',enabled:true},
+  {id:'youtube',name:'YouTube',url:'https://www.youtube.com/@millioner.uz_official?sub_confirmation=1',label:'Официальный канал MILLIONER.UZ · подписка',enabled:true},
+  {id:'telegram',name:'Telegram',url:'https://t.me/millioneruzofficial',label:'Канал / группа / бот — добавьте ссылку',enabled:true}
+ ],
+ contacts:[
+  {id:'phone',type:'phone',label:'Позвонить',value:'+998913307999',enabled:true},
+  {id:'sms',type:'sms',label:'Отправить SMS',value:'+998913307999',enabled:true},
+  {id:'telegram-contact',type:'telegram',label:'Личный Telegram',value:'',enabled:true},
+  {id:'telegram-support',type:'telegram',label:'Telegram Support Bot',value:'',enabled:true},
+  {id:'email',type:'email',label:'Email',value:'',enabled:false}
+ ],
+ modules:[
+  {id:'welcome',name:'Welcome / Splash Screen',enabled:true},
+  {id:'social-registry',name:'Social Links Registry',enabled:true},
+  {id:'contact-center',name:'Contact Center',enabled:true},
+  {id:'owner-admin',name:'Owner Admin',enabled:true},
+  {id:'accounts',name:'Accounts / Passkeys',enabled:false},
+  {id:'chat',name:'MILLIONER CHAT',enabled:false},
+  {id:'shield',name:'MILLIONER SHIELD',enabled:false},
+  {id:'payments',name:'Payments',enabled:false}
+ ],mediaType:'video',mediaData:'',mediaName:''
+};
+let cfg;try{cfg=JSON.parse(localStorage.getItem(STORE))||structuredClone(defaults)}catch{cfg=JSON.parse(JSON.stringify(defaults))}
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function persist(){localStorage.setItem(STORE,JSON.stringify(cfg));render()}
+function renderMedia(){
+ const box=$('welcomeMedia');box.innerHTML='';
+ if(cfg.mediaType==='none'){box.style.display='none';return}
+ box.style.display='block';
+ if(cfg.mediaType==='html'&&cfg.mediaData){box.innerHTML=cfg.mediaData;return}
+ const src=cfg.mediaData||'./assets/welcome-video.mp4';
+ if(cfg.mediaType==='image'){const im=document.createElement('img');im.src=src;im.alt='MILLIONER.UZ welcome';box.append(im)}
+ else{const v=document.createElement('video');v.src=src;v.controls=true;v.playsInline=true;v.preload='metadata';box.append(v)}
+}
+function renderSocial(){
+ $('socialCards').innerHTML=cfg.socials.filter(x=>x.enabled).map(x=>`<article class="card"><h3>${esc(x.name)}</h3><p>${esc(x.label||'Official link')}</p>${x.url?`<div class="card-actions"><a class="btn small primary" href="${esc(x.url)}" target="_blank" rel="noopener">Открыть / подписаться</a></div>`:'<p style="margin-top:8px;color:#e6bf56">Ссылка будет добавлена владельцем</p>'}</article>`).join('');
+ $('socialEditor').innerHTML=cfg.socials.map((x,i)=>`<div class="item"><div><b>${esc(x.name)}</b><small>${esc(x.url||'Ссылка не задана')}</small></div><div class="item-actions"><button class="btn small" onclick="editSocial(${i})">Изменить</button><button class="btn small" onclick="toggleSocial(${i})">${x.enabled?'Выкл':'Вкл'}</button><button class="btn small" onclick="delSocial(${i})">×</button></div></div>`).join('');
+}
+function renderContacts(){
+ $('contactCards').innerHTML=cfg.contacts.filter(x=>x.enabled&&x.value).map(x=>{let href='',label=x.label;let v=x.value.trim();if(x.type==='phone')href='tel:'+v.replace(/[^\\d+]/g,'');if(x.type==='sms')href='sms:'+v.replace(/[^\\d+]/g,'')+'?&body='+encodeURIComponent(({uz:'Assalomu alaykum! Men MILLIONER.UZ saytidagi kontaktlar orqali murojaat qilyapman. Iltimos, men bilan bog‘laning.',ru:'Здравствуйте! Я обращаюсь через контакты сайта MILLIONER.UZ. Пожалуйста, свяжитесь со мной.',en:'Hello! I am contacting you through the MILLIONER.UZ website. Please get in touch with me.'})[getVisitorLanguage()]+' ['+location.origin+']');if(x.type==='telegram')href=v.startsWith('http')?v:'https://t.me/'+v.replace(/^@/,'');if(x.type==='email')href='mailto:'+v;const action=x.type==='phone'?`<button class="btn small primary call-start" data-number="${esc(v)}">Позвонить</button>`:`<a class="btn small primary" href="${esc(href)}" ${x.type==='telegram'?'target="_blank" rel="noopener"':''}>${x.type==='sms'?'Написать SMS':x.type==='email'?'Написать email':'Открыть Telegram'}</a>`;return `<article class="contact"><b>${esc(label)}</b><small>${esc(v)}</small><div class="card-actions">${action}</div></article>`}).join('')||'<div class="notice">Контактные данные появятся здесь после заполнения в панели владельца.</div>';
+ $('contactEditor').innerHTML=cfg.contacts.map((x,i)=>`<div class="item"><div><b>${esc(x.label)}</b><small>${esc(x.value||'Контакт не заполнен')} · ${esc(x.type)}</small></div><div class="item-actions"><button class="btn small" onclick="editContact(${i})">Изменить</button><button class="btn small" onclick="toggleContact(${i})">${x.enabled?'Выкл':'Вкл'}</button><button class="btn small" onclick="delContact(${i})">×</button></div></div>`).join('');
+}
+function renderModules(){$('moduleList').innerHTML=cfg.modules.map((m,i)=>`<div class="item"><div><b>${esc(m.name)}</b><small>Module ID: ${esc(m.id)}</small></div><label class="check"><input type="checkbox" ${m.enabled?'checked':''} onchange="cfg.modules[${i}].enabled=this.checked;persist()"> Вкл</label></div>`).join('')}
+function render(){renderMedia();renderSocial();renderContacts();renderModules();$('mediaType').value=cfg.mediaType}
+function editSocial(i){let x=cfg.socials[i];let n=prompt('Название',x.name);if(n===null)return;let u=prompt('Полная ссылка',x.url);if(u===null)return;let l=prompt('Подпись',x.label);if(l===null)return;x.name=n;x.url=u;x.label=l;persist()}
+function toggleSocial(i){cfg.socials[i].enabled=!cfg.socials[i].enabled;persist()}function delSocial(i){if(confirm('Удалить?')){cfg.socials.splice(i,1);persist()}}
+function editContact(i){let x=cfg.contacts[i];let label=prompt('Подпись',x.label);if(label===null)return;let value=prompt('Номер / @username / URL / email',x.value);if(value===null)return;x.label=label;x.value=value;persist()}
+function toggleContact(i){cfg.contacts[i].enabled=!cfg.contacts[i].enabled;persist()}function delContact(i){if(confirm('Удалить контакт?')){cfg.contacts.splice(i,1);persist()}}
+$('addSocial').onclick=()=>{let name=prompt('Название площадки');if(!name)return;let url=prompt('Полная ссылка')||'';cfg.socials.push({id:'social-'+Date.now(),name,url,label:'Официальная площадка',enabled:true});persist()};
+$('addContact').onclick=()=>{let type=prompt('Тип: phone / sms / telegram / email','phone');if(!['phone','sms','telegram','email'].includes(type))return;let label=prompt('Подпись контакта')||'Связаться';let value=prompt('Номер, @username, URL или email')||'';cfg.contacts.push({id:'contact-'+Date.now(),type,label,value,enabled:true});persist()};
+$('applyMedia').onclick=async()=>{let type=$('mediaType').value;cfg.mediaType=type;if(type==='html'){cfg.mediaData=$('mediaHtml').value.trim()}else if(type==='none'){cfg.mediaData=''}else{let f=$('mediaFile').files[0];if(f){if(f.size>7*1024*1024){alert('Файл больше 7 МБ. Для больших видео положите файл в GitHub assets и подключите отдельным релизом.');return}cfg.mediaData=await new Promise((res,rej)=>{let r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(f)});cfg.mediaName=f.name}}persist();alert('Медиа применено в этом браузере')};
+$('removeMedia').onclick=()=>{cfg.mediaType='none';cfg.mediaData='';cfg.mediaName='';persist();alert('Медиа удалено. Приветствие автоматически перестроено.')};
+$('mediaType').onchange=()=>{$('mediaHtml').style.display=$('mediaType').value==='html'?'block':'none'};
+let deferred=null;window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e});
+$('installBtn').onclick=async()=>{if(deferred){deferred.prompt();await deferred.userChoice;deferred=null}else if(/iPhone|iPad|iPod/i.test(navigator.userAgent)){alert('На iPhone: Safari → Поделиться → На экран Домой → Добавить.')}else{alert('Откройте меню браузера и выберите «Установить приложение» или «Добавить на главный экран».')}};
+function enterSite(){$('gate').style.display='none';$('home').style.display='block';window.scrollTo(0,0)}
+function installGuidance(){
+ const ua=navigator.userAgent;
+ if(/iPhone|iPad|iPod/i.test(ua)){
+  $('installHelpText').innerHTML='<b>На iPhone / iPad:</b><ol><li>Откройте сайт в Safari.</li><li>Нажмите кнопку «Поделиться».</li><li>Выберите «На экран Домой».</li><li>Нажмите «Добавить».</li></ol><p>iOS не разрешает сайту автоматически вызвать установку — действие подтверждается вами.</p>';
+ }else if(/Android/i.test(ua)){
+  $('installHelpText').innerHTML='<b>На Android:</b> используйте предложение браузера «Установить приложение» или меню ⋮ → «Установить приложение» / «Добавить на главный экран». Если появилось системное окно, подтвердите установку.';
+ }else{
+  $('installHelpText').innerHTML='<b>На компьютере:</b> в Chrome или Edge нажмите значок установки в адресной строке либо откройте меню браузера и выберите «Установить MILLIONER.UZ».';
+ }
+ $('installHelp').showModal();
+}
+$('startButton').onclick=async()=>{
+ if(deferred){
+   try{deferred.prompt();const choice=await deferred.userChoice;deferred=null;if(choice&&choice.outcome==='accepted'){enterSite();return;}}
+   catch(e){}
+ }
+ installGuidance();
+};
+$('continueWithoutInstall').onclick=enterSite;
+$('closeInstallHelp').onclick=()=>$('installHelp').close();
+$('confirmContinue').onclick=()=>{$('installHelp').close();enterSite()};
+
+$('ownerBtn').onclick=()=>$('loginDialog').showModal();$('closeLogin').onclick=()=>$('loginDialog').close();
+$('login').onclick=()=>{let pin=localStorage.getItem('millioner-demo-pin')||'2468';if($('pinInput').value===pin){$('loginDialog').close();$('home').style.display='none';$('admin').style.display='block'}else $('loginMsg').textContent='Неверный PIN'};
+$('exitAdmin').onclick=()=>{$('admin').style.display='none';$('home').style.display='block'};
+document.querySelectorAll('.admin-nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.admin-nav button').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x.id==='tab-'+b.dataset.tab))});
+$('savePin').onclick=()=>{if($('newPin').value.length<4){alert('Минимум 4 символа');return}localStorage.setItem('millioner-demo-pin',$('newPin').value);alert('PIN изменён на этом устройстве')};
+let connectList=[],connectAt=0;
+$('connectAll').onclick=()=>{connectList=cfg.socials.filter(x=>x.enabled&&x.url);connectAt=0;if(!connectList.length){alert('Владелец ещё не добавил ссылки.');return}showConnect();$('connectDialog').showModal()};
+function showConnect(){$('connectStep').innerHTML=`<span class="muted">${connectAt+1} / ${connectList.length}</span><h3>${esc(connectList[connectAt].name)}</h3><p class="muted">${esc(connectList[connectAt].url)}</p>`;$('openNext').disabled=false}
+$('openNext').onclick=()=>{window.open(connectList[connectAt].url,'_blank','noopener');connectAt++;if(connectAt>=connectList.length){$('connectStep').innerHTML='<b>Все доступные площадки открыты.</b><p class="muted">Завершите подписку на самих платформах.</p>';$('openNext').disabled=true}else showConnect()};
+$('endConnect').onclick=()=>$('connectDialog').close();$('closeConnect').onclick=()=>$('connectDialog').close();
+if('serviceWorker'in navigator&&location.protocol.startsWith('http'))addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+render();
+</script></body></html>
