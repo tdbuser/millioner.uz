@@ -12,18 +12,13 @@ button{cursor:pointer}
 #gate{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:0;background:#020905}
 .exact-gate{position:relative;width:min(100vw,46.4286vh);height:min(100dvh,215.3846vw);aspect-ratio:832/1792;flex:none}
 .exact-gate-image{display:block;width:100%;height:100%;object-fit:fill}
- .welcome-video-overlay{
-  position:absolute;
-  z-index:2;
-  left:10.5%;
-  top:33.5%;
-  width:79%;
-  height:21.5%;
-  object-fit:cover;
-  border:1px solid #13df78;
-  border-radius:5%;
-  background:#000;
-}
+/* Functional video player layered over the video area in the approved welcome artwork. */
+.welcome-video-overlay{position:absolute;z-index:2;left:10.5%;top:33.5%;width:79%;height:21.5%;overflow:hidden;border:1px solid #13df78;border-radius:5%;background:#000;box-shadow:0 0 18px #13df7850}
+.welcome-video-overlay video{display:block;width:100%;height:100%;object-fit:cover;background:#000}
+/* The CTA is already drawn in the artwork; this button is its transparent tap target. */
+#gate .exact-gate .exact-start-hit{position:absolute;z-index:3;left:4.5%;top:61.95%;width:91%;height:8.05%;min-height:0;padding:0;border:0;border-radius:5%;background:transparent;color:transparent;font-size:0;box-shadow:none;text-shadow:none;transform:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+#gate .exact-gate .exact-start-hit::before{display:none}
+#gate .exact-gate .exact-start-hit:hover,#gate .exact-gate .exact-start-hit:active{filter:none;box-shadow:none;transform:none}
 .exact-start-hit{position:absolute;left:4.5%;top:61.95%;width:91%;height:8.05%;border:0;border-radius:5%;background:transparent;color:transparent;font-size:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .exact-start-hit:focus-visible{outline:3px solid #fff;outline-offset:3px}
 .visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
@@ -84,6 +79,7 @@ dialog{background:#0b160f;color:#fff;border:1px solid var(--line);border-radius:
 <section id="gate" aria-label="MILLIONER.UZ welcome">
  <div class="exact-gate">
   <img class="exact-gate-image" src="./assets/welcome-exact.png" alt="Welcome to MILLIONER.UZ">
+  <div id="welcomeMedia" class="welcome-video-overlay" aria-label="MILLIONER.UZ welcome video"></div>
   <button id="startButton" class="exact-start-hit" aria-label="BOSHLASH, НАЧАТЬ, START">BOSHLASH • НАЧАТЬ • START →</button>
   <button id="continueWithoutInstall" class="visually-hidden" type="button">Продолжить без установки</button>
  </div>
